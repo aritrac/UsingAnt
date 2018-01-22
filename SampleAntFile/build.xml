@@ -1,0 +1,10 @@
+<!-- Ant Structure 2 -->
+<?xml version="1.0" ?>
+<project name="SampleAntFile" default="hello">
+	<target name="hello">
+		<echo message="Hello World!"/>
+	</target>
+</project>
+<!-- To run this file we need to go to the directory where this file is stored and enter
+>>ant 
+The build file will be executed -->

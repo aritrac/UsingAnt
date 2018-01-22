@@ -1,0 +1,13 @@
+<!-- Ant Structure 2 -->
+<?xml version="1.0" ?>
+<project name="FirstTest" default="world">
+	<target name="hello">
+		<echo message="Hello"/>
+	</target>
+	<target name="world" depends="hello">
+		<echo message="World!"/>
+	</target>
+</project>
+<!-- To execute this file, as the name is not build.xml , we need to specicy this build file explicitly as follows
+>>ant -buildfile helloworld2.xml
+ -->
