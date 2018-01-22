@@ -1,5 +1,5 @@
-<!-- Ant Structure 2 -->
 <?xml version="1.0" ?>
+<!-- Ant Structure 2 -->
 <project name="FirstTest" default="world">
 	<target name="hello">
 		<echo message="Hello"/>
