@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<!-- Ant Structure 2 -->
+<project name="SampleAntFile" default="hello">
+	<target name="hello">
+		<echo message="Hello World!"/>
+	</target>
+</project>
