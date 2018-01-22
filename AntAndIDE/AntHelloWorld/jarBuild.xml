@@ -25,7 +25,7 @@
 			description="JARs the code" 
 			depends="compile">
 		<jar destfile="${build.dir}/${project.name}.jar"
-			 basedir="${classes.dir}" />
+			 basedir="${classes.dir}" manifest="${etc.dir}/MANIFEST.MF"/>
 	</target>
 
 	<target name="clean" description="Delete the build directory" depends="init">
