@@ -33,3 +33,9 @@
 		<delete dir="${build.dir}"/>
 	</target>
 </project>
+
+<!-- how to run this buld
+>>ant ->This will run the build.xml and all the defined targets
+>>ant ->If this is run again we will see no additional artifacts gets created as the source timestamp has not changed
+>>ant clean -> If this is run, then only the clean target will run, but keep in mind the clean target has a dependency on init target, hence init will be executed first and then clean 
+>>ant clean jarfile ->If this is run, then first clean target will run, and then jarfile target will run-->
