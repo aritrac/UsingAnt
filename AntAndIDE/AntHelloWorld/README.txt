@@ -9,4 +9,5 @@ Example3: How to compile and execute Java code using ant -> compileAndExecute.xm
 
 Example4: How to build a jar using ant -> jarBuild.xml
 
+Example5: Different ways of compiling using ant -> compileTask.xml
 ***************************************************

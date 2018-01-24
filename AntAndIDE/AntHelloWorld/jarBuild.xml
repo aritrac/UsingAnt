@@ -20,12 +20,34 @@
 		<javac srcdir="${src.dir}" 
 			   destdir="${classes.dir}" includeantruntime="false"/>
 	</target>
-
+	
+	<!--This uses a custom MANIFEST.MF already present in the etc folder-->
+	
 	<target name="jarfile" 
 			description="JARs the code" 
 			depends="compile">
 		<jar destfile="${build.dir}/${project.name}.jar"
 			 basedir="${classes.dir}" manifest="${etc.dir}/MANIFEST.MF"/>
+	</target>
+	
+	<!-- This uses an automatically created MANIFEST.MF file using ant attributes defined below in the manifest tage-->
+	<target name="jarfile2" 
+				description="JARs the code using a dynamic manifest" 
+				depends="compile">
+			<jar destfile="${build.dir}/${project.name}.jar"
+				 basedir="${classes.dir}">
+				<manifest>
+					<attribute name="Permissions" value="sandbox"/>
+					<attribute name="Codebase" value="example.com"/>
+					<attribute name="Built-By" value="${user.name}"/>
+					<attribute name="Implementation-Vendor" value="Aritra Inc."/>
+					<attribute name="Implementation-Title" value="Ant Execution"/>
+					<attribute name="Implementation-Version" value="1.0"/>
+					<section name="com/aritra/build/examples/AntIdeIntegration.class">
+						<attribute name="Sealed" value="false"/>
+					</section>
+				</manifest>
+			</jar>
 	</target>
 
 	<target name="clean" description="Delete the build directory" depends="init">

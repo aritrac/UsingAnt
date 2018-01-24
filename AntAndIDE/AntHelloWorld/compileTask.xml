@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<project name="compileSource" basedir="." default="compileTask1">
+	<target name="init" description="Initializes properties for compile task">
+		<property name="project.name" value="helloWorld"/>
+		<property name="src.dir" value="src"/>
+		<property name="build.dir" value="build"/>
+		<property name="classes.dir" value="${build.dir}/classes" />
+		<property name="etc.dir" value="etc" />
+	</target>
+	
+	<target name="prepare" 
+			description="Creates the build and classes directories" 
+			depends="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+	</target>
+	
+	<!-- Compile Task 1 -->
+	<target name="compileTask1" depends="init, prepare">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+			<!-- Include following packages -->
+			<include name="com/aritra/build/dummy/**"/>
+			<!-- Exclude following packages -->
+			<exclude name="com/aritra/build/temp/**"/>
+			<exclude name="com/aritra/build/examples/**"/>
+		</javac>
+	</target>
+	
+	<!-- Compile Task 2 -->
+	<target name="compileTask2" depends="init, prepare">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+			<!-- Include following packages -->
+			<include name="com/aritra/build/dummy/**"/>
+			<!-- Exclude following packages -->
+			<exclude name="com/aritra/build/temp/**, com/aritra/build/examples/**"/>
+		</javac>
+	</target>
+	
+	<!-- Compile Task 3 -->
+	<target name="compileTask3" depends="init, prepare">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="on" includeantruntime="false"/>
+	</target>
+	
+	<!-- Clean CompileTask 1 -->
+	<target name="clean" description="Delete the build directory" depends="init">
+		<delete dir="${build.dir}"/>
+	</target>
+</project>
