@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JavaDoc Example" default="javadoc" basedir=".">
+	<target name="javadoc">
+		<javadoc packagenames="com.aritra.examples"
+				 sourcepath="src"
+				 excludepackagenames="com.aritra.examples.exclude"
+				 defaultexcludes="yes"
+				 destdir="docs/api"
+				 author="true"
+				 version="true"
+				 use="true"
+				 windowtitle="Aritras API">
+		<doctitle><![CDATA[<h1>Aritra Chatterjee</h1>]]></doctitle>
+		<bottom><![CDATA[<i>Copyright &#169; 2018 spincoder.in All Rights Reserved</i>]]></bottom>
+		</javadoc>
+	</target>
+</project>
