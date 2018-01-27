@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--This ant build file if run , creates a WAR file with the following folder structure
  images
+ 	->antlogo.png
  META-INF
+ 	->MANIFEST.MF
  WEB-INF
+ 	->classes
+ 	->lib
+ 	->web.xml
  index.html
- main.jsp-->
+ main.jsp
+ -->
 <project name="War Example" default="war" basedir=".">
 	<target name="war">
 		<war destfile="example.war" webxml="metadata/web.xml">
