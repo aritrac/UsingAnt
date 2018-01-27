@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+If ant is not able to find javadoc.exe, then right click build and select
+"Ant Build..." which opens Ant configuration. In that goto the JRE tab and change the 
+JRE to JDK and you should be able to generate the same 
+-->
 <project name="JavaDoc Example" default="javadoc" basedir=".">
 	<target name="javadoc">
 		<javadoc packagenames="com.aritra.examples"
