@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Junit Example" default="test" basedir=".">
+	<target name="init">
+		<property name="src.dir" value="src"/>
+		<property name="reports.dir" value="reports"/>
+		<property name="build.dir" value="build"/>
+		<property name="lib" value="lib"/>
+		<path id="junit.class.path">
+			<fileset dir="${lib}">
+        		<include name="junit.jar"/>
+				<include name="org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    		</fileset>
+			<pathelement location="${build.dir}"/>
+		</path>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+			<classpath refid="junit.class.path"/>
+		</javac>
+	</target>
+	
+	<target name="test" depends="compile">
+		<junit printsummary="yes" haltonfailure="yes" showoutput="yes">
+			<classpath refid="junit.class.path"/>
+			<test name="com.aritra.sample.test.AdderTest" todir="${reports.dir}"/>
+			<formatter type="xml"/>
+		</junit>
+	</target>
+	
+	<target name="report" depends="init">
+		<junitreport todir="${reports.dir}">
+			<fileset dir="${reports.dir}" includes="TEST-*.xml"/>
+			<report format="noframes" todir="${reports.dir}"/>
+		</junitreport>
+	</target>
+	
+</project>
