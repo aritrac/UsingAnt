@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Property File Example" default="createfile" basedir=".">
+	<!-- This ant file will create a new properties file with the following properties -->
+	<target name="createfile">
+		<propertyfile file="dynamic.properties">
+			<entry key="date" type="date" value="now" />
+			<entry key="buildnumber" type="int" default="0" operation="+"/>
+		</propertyfile>
+	</target>
+</project>
