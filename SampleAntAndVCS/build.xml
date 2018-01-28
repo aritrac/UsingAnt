@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Demo" default="version" basedir=".">
+
+	<macrodef name="git">
+		<attribute name="command"/>
+		<attribute name="dir" default=""/>
+		<element name="args" optional="true"/>
+		<sequential>
+			<echo message="git @{command}" />
+			<exec executable="${GIT_EXE_PATH}" dir="@{dir}">
+				<arg value="@{command}" />
+				<args/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<target name="init">
+		<property name="commit-message" value="My First Commit"/>
+		<property name="GIT_EXE_PATH" value="D:\Git\bin\git.exe"/>
+	</target>
+	
+	<target name="version" description="Commits all changes to version git" depends="createfile">
+		
+		<echo message="Commiting all changes with message ${commit-message}" />
+		<git command="add">
+			<args>
+				<arg value="-A" />
+			</args>
+		</git>
+		<git command="commit">
+			<args>
+				<arg value="-m ${commit-message}" />
+			</args>
+		</git>
+		<git command="push" />
+	</target>
+	
+	<target name="createfile" depends="init">
+		<propertyfile file="my.properties">
+			<entry key="first_name" value="Aritra"/>
+			<entry key="second_name" value="Chatterjee"/>
+		</propertyfile>
+	</target>
+</project>
