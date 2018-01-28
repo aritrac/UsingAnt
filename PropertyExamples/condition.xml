@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Condition Example" basedir="." default="showproperties">
+	<!--This ant script does some conditional checks and if passed, sets some corresponding properties which is then printed out -->
+	<target name="testconditions" depends="build">
+		
+		<condition property="javamailComplete">
+			<and>
+				<available classname="java.lang.String"/>
+				<available classname="java.lang.Object"/>
+			</and>
+		</condition>
+		
+		<condition property="isWindowsButNotWindows7">
+			<and>
+				<os family="windows" />
+				<not>
+					<os name="Windows 7"/>
+				</not>
+			</and>
+		</condition>
+	</target>
+	
+	<target name="showproperties" depends="testconditions">
+		<echo>javamail.complete : ${javamailComplete}</echo>
+		<echo>isWindowsButNotWindows7 : ${isWindowsButNotWindows7}</echo>
+	</target>
+	
+	<target name="build">
+
+        <echo message="OS Name is:         ${os.name}" />
+        <echo message="OS Architecture is: ${os.arch}" />
+        <echo message="OS Version is:      ${os.version}" />
+
+    </target>
+</project>
