@@ -9,7 +9,7 @@
 			<echo message="git @{command}" />
 			<exec executable="${GIT_EXE_PATH}" dir="@{dir}">
 				<arg value="@{command}" />
-				<args/>
+				<args />
 			</exec>
 		</sequential>
 	</macrodef>
