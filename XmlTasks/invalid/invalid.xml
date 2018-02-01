@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+	<CD>
+		<TITLE>Still got the blues</TITLE>
+		<ARTIST>Gary Moore</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>Virgin records</COMPANY>
+		<PRICE>10.20</PRICE>
+	</CD>
+	<CD>
+		<TITLE>Still got the blues</TITLE>
+		<ARTIST>Gary Moore</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>Virgin records</COMPANY>
+		<PRICE>10.20</PRICE>
+		<YEAR>1990</YEAR>
+	</CD>
+	<CD>
+		<TITLE>Still got the blues</TITLE>
+		<ARTIST>Gary Moore</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>Virgin records</COMPANY>
+		<PRICE>10.20</PRICE>
+		<YEAR>1990</YEAR>
+	</CD>
+	<CD>
+		<TITLE>Still got the blues</TITLE>
+		<ARTIST>Gary Moore</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>Virgin records</COMPANY>
+		<PRICE>10.20</PRICE>
+		<YEAR>1990</YEAR>
+	</CD>
+	<CD>
+		<TITLE>Still got the blues</TITLE>
+		<ARTIST>Gary Moore</ARTIST>
+		<COUNTRY>UK</COUNTRY>
+		<COMPANY>Virgin records</COMPANY>
+		<PRICE>10.20</PRICE>
+		<YEAR>1990</YEAR>
+	</CD>
+</CATALOG>

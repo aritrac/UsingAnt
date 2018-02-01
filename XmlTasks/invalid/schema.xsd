@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/schema" elementFormDefault="qualified">
+	<element name="CATALOG">
+    <complexType>
+      <sequence>
+        <element name="CD" maxOccurs="unbounded" minOccurs="0">
+          <complexType>
+            <sequence>
+              <element type="string" name="TITLE"/>
+              <element type="string" name="ARTIST"/>
+              <element type="string" name="COUNTRY"/>
+              <element type="string" name="COMPANY"/>
+              <element type="float" name="PRICE"/>
+              <element type="short" name="YEAR"/>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
