@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fileset">
+	<!-- Fileset Implementation 1 -->
+	<fileset dir="build" defaultexcludes="yes">
+		<patternset id="source">
+			<include name="**/*.java" />
+			<exclude name="**/*Test*"/>
+		</patternset>
+	</fileset>
+	
+	<!-- Fileset Implementation 2 -->
+	<fileset dir="build" defaultexcludes="yes">
+		<include name="**/*.java"/>
+		<exclude name="**/*Test*"/>
+	</fileset>
+	
+	<!-- Fileset Implementation 3 -->
+	<fileset dir="build"
+			 defaultexcludes="yes"
+			 includes="**/*.java"
+			 excludes="**/*Test*"/>
+</project>
