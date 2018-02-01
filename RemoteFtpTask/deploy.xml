@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Deploy Example" default="ftp" basedir=".">
+	<target name="copy" depends="init">
+		<copy file="${docs.dir}/test.html" todir="${deploy.dir}" />
+	</target>
+	
+	<target name="init">
+		<property name="server.name" value="192.168.1.3"/>
+		<property name="server.port" value="54218"/>
+		<property name="remote.dir" value="newShare"/>
+		<property name="user.id" value="aritrac"/>
+		<property name="password" value="7layer"/>
+		<property name="docs.dir" value="docs"/>
+	</target>
+	
+	<target name="ftp" depends="init">
+		<ftp server="${server.name}"
+			 port="${server.port}"
+			 remotedir="${remote.dir}"
+			 userid="${user.id}"
+			 password="${password}"
+			 passive="yes"
+			 binary="no"
+			 verbose="yes">
+			 <fileset dir="${docs.dir}">
+			 	<include name="*.html"/>
+			 </fileset>
+		</ftp>
+	</target>
+</project>
