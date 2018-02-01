@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Mail Example" default="mail" basedir=".">
+<!-- Not this project will fail to send a mail if you are using gmail to send it, as there has been drastic changes on how google lets you
+use its free SMTP server to send out mails. You will get an account protection mail from google if that is the case -->
+<!-- Also please provide your userid and password while running this -->
+	<target name="init">
+		<property name="reports.dir" value="reports"/>
+		<property name="lib" value="lib"/>
+	</target>
+	<target name="mail" depends="init">
+		<mail mailhost="smtp.gmail.com"
+			  user=""
+			  password="" 
+			  ssl="true"
+			  mailport="465"
+			  subject="Test Build">
+			  <from address="aritrachatterjee2007@gmail.com"/>
+			  <to address="aritra.chatterjee@ca.com"/>
+			  <message>The nightly build has completed</message>
+			  <attachments>
+			  	<fileset dir="${reports.dir}">
+			  		<include name="**/*.zip"/>
+			  	</fileset>
+			  </attachments>
+		</mail>
+	</target>
+</project>
