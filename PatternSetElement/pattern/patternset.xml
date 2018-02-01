@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+
+<!-- One type of PatternSet implementation -->
+
+<patternset id="classes">
+	<include name="**/*.class"/>
+	<exclude name="**/*.class"/>
+</patternset>
+
+<!-- Second type of PatternSet implementation -->
+
+<patternset id="classesinline" includes="**/*.class" excludes="**/*.class"/>
+
+</project>

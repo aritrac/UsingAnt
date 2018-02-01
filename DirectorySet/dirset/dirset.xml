@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dirSet">
+
+	<!-- Implementation One -->
+	<dirset dir="buildimpl1">
+		<patternset id="classes">
+			<include name="**/classes"/>
+			<include name="**/*Test*" />
+		</patternset>
+	</dirset>
+	
+	<!-- Implementation Two -->
+	<dirset dir="buildimpl2">
+		<include name="**/classes" />
+		<exclude name="**/*Test*" />
+	</dirset>
+	
+	<!-- Implementation Three -->
+	<dirset dir="build"
+			includes="**/classes"
+			excludes="**/*Test*"/>
+</project>
