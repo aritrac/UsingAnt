@@ -3,7 +3,7 @@
 	<target name="copy" depends="init">
 		<copy file="${docs.dir}/test.html" todir="${deploy.dir}" />
 	</target>
-	
+	<!--Details of the FTP server and its directory information -->
 	<target name="init">
 		<property name="server.name" value="192.168.1.3"/>
 		<property name="server.port" value="54218"/>
@@ -12,7 +12,20 @@
 		<property name="password" value="7layer"/>
 		<property name="docs.dir" value="docs"/>
 	</target>
+	<!--This task gets all the html files from the default FTP root directory and copies them all to the docs directory -->
+	<target name="get" depends="init">
+		<ftp action="get"
+			 server="${server.name}"
+			 port="${server.port}"
+			 userid="${user.id}"
+			 password="${password}">
+			<fileset dir="${docs.dir}">
+				<include name="*.html"/>
+			</fileset>
+		</ftp>
+	</target>
 	
+	<!-- This task puts the html files from the docs directory to the FTP newShare directory-->
 	<target name="ftp" depends="init">
 		<ftp server="${server.name}"
 			 port="${server.port}"
