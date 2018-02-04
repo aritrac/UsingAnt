@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="End to End Build" default="prepare" basedir=".">
+	<target name="init">
+		<tstamp />
+		<property file="build.properties" />
+	</target>
+	
+	<target name="startrecorder">
+		<record name="${name}-${DSTAMP}-log.txt"
+				action="start"
+				append="false"/>
+	</target>
+	<!-- build and classes directory are already part of the project -->
+	<target name="prepare" depends="init, startrecorder">
+		<mkdir dir="${reports.dir}"/>
+	</target>
+	
+	<target name="fetch" depends="init"></target>
+	
+	<target name="compile" depends="prepare, fetch"></target>
+	
+	<target name="test" depends="compile">
+		<junit failureproperty="testsFailed"/>
+	</target>
+	
+	<target name="war" depends="test" unless="testsFailed"></target>
+	
+	<target name="deploy" depends="war" unless="testsFailed"></target>
+	
+	<target name="sendmail" depends="deploy, stoprecorder"></target>
+	
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${reports.dir}" />
+	</target>
+	
+	<target name="stoprecorder">
+		<record name="${name}-${DSTAMP}-log.txt" action="stop"/>
+	</target>
+	
+	<!-- Git Related Tasks -->
+	<macrodef name="git">
+		<attribute name="command"/>
+		<attribute name="dir" default=""/>
+		<element name="args" optional="true"/>
+		<sequential>
+			<echo message="git @{command}" />
+			<exec executable="${GIT_EXE_PATH}" dir="@{dir}">
+				<arg value="@{command}" />
+				<args />
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<target name="init">
+		<property name="commit-message" value="My First Commit"/>
+		<property name="GIT_EXE_PATH" value="D:\Git\bin\git.exe"/>
+	</target>
+	
+	<target name="version" description="Pulls all changes from git" depends="createfile">
+		<echo message="Pulling latest code from UsingAnt project..." />
+		<git command="pull" />
+	</target>
+	
+	<target name="createfile" depends="init">
+		<propertyfile file="my.properties">
+			<entry key="first_name" value="Aritra"/>
+			<entry key="second_name" value="Chatterjee"/>
+		</propertyfile>
+	</target>
+</project>

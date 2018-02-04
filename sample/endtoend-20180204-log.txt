@@ -1,0 +1,6 @@
+
+prepare:
+    [mkdir] Created dir: D:\github\UsingAnt\sample\reports
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL

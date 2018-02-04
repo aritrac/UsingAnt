@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="End to End Build" default="sendmail" basedir=".">
+<project name="End to End Build" default="init" basedir=".">
 	<target name="init">
 		<tstamp />
 		<property file="build.properties" />
@@ -23,6 +23,13 @@
 	<target name="war" depends="test" unless="testsFailed"></target>
 	
 	<target name="deploy" depends="war" unless="testsFailed"></target>
+	
+	<target name="sendmail" depends="deploy, stoprecorder"></target>
+	
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${reports.dir}" />
+	</target>
 	
 	<target name="stoprecorder"></target>
 </project>
