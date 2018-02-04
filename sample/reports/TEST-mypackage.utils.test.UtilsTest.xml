@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="DESKTOP-H9T0FFM" name="mypackage.utils.test.UtilsTest" skipped="0" tests="2" time="0.06" timestamp="2018-02-04T18:29:19">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\templates" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="server.name" value="192.168.1.3" />
+    <property name="ant.file.End to End Build" value="D:\github\UsingAnt\sample\endtoend.xml" />
+    <property name="user.id" value="aritrac" />
+    <property name="docs.dir" value="build" />
+    <property name="lib" value="lib" />
+    <property name="os.name" value="Windows 10" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_161\jre\classes" />
+    <property name="TODAY" value="February 4 2018" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="C:\apache-ant-1.10.1" />
+    <property name="java.runtime.version" value="1.8.0_161-b12" />
+    <property name="user.name" value="aritr" />
+    <property name="remote.dir" value="wars" />
+    <property name="mail.port" value="2525" />
+    <property name="build.dir" value="build" />
+    <property name="GIT_EXE_PATH" value="D:\Git\bin\git.exe" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin" />
+    <property name="reports.dir" value="reports" />
+    <property name="ant.project.default-target" value="sendmail" />
+    <property name="ant.project.name" value="End to End Build" />
+    <property name="DSTAMP" value="20180204" />
+    <property name="java.version" value="1.8.0_161" />
+    <property name="user.timezone" value="" />
+    <property name="mail.user" value="9f4347fca6706e" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\endorsed" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="build.dir.classes" value="build/classes" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="IN" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_161\jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="D:\github\UsingAnt\sample\endtoend.xml" />
+    <property name="os.version" value="10.0" />
+    <property name="ant.file.type.End to End Build" value="file" />
+    <property name="path.separator" value=";" />
+    <property name="mail.pass" value="64cb2a0f4c4da3" />
+    <property name="java.vm.version" value="25.161-b12" />
+    <property name="user.variant" value="" />
+    <property name="ant.library.dir" value="C:\apache-ant-1.10.1\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="user.script" value="" />
+    <property name="eclipse.pdebuild.scripts" value="C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\scripts" />
+    <property name="user.home" value="C:\Users\aritr" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="D:\Eclipse-Oxygen\eclipse;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\apache-ant-1.10.1\bin;D:\Git\bin;C:\Program Files\apache-maven-3.5.2\bin;C:\Ruby24-x64\bin;C:\Users\aritr\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\aritr\AppData\Roaming\npm;D:\rubygems-2.7.3\bin;C:\WINDOWS\System32;;.;D:\Eclipse-Oxygen\eclipse\configuration\org.eclipse.osgi\1551\0\.cp" />
+    <property name="name" value="sample" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1517768954084 -Declipse.connect.port=65401 -Declipse.pdebuild.home=C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\. -Declipse.pdebuild.scripts=C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\scripts -Declipse.pdebuild.templates=C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\templates -Dant.home=C:\apache-ant-1.10.1 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile D:\github\UsingAnt\sample\endtoend.xml" />
+    <property name="java.class.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext\zipfs.jar;C:\apache-ant-1.10.1\lib\ant-antlr.jar;C:\apache-ant-1.10.1\lib\ant-apache-bcel.jar;C:\apache-ant-1.10.1\lib\ant-apache-bsf.jar;C:\apache-ant-1.10.1\lib\ant-apache-log4j.jar;C:\apache-ant-1.10.1\lib\ant-apache-oro.jar;C:\apache-ant-1.10.1\lib\ant-apache-regexp.jar;C:\apache-ant-1.10.1\lib\ant-apache-resolver.jar;C:\apache-ant-1.10.1\lib\ant-apache-xalan2.jar;C:\apache-ant-1.10.1\lib\ant-commons-logging.jar;C:\apache-ant-1.10.1\lib\ant-commons-net.jar;C:\apache-ant-1.10.1\lib\ant-jai.jar;C:\apache-ant-1.10.1\lib\ant-javamail.jar;C:\apache-ant-1.10.1\lib\ant-jdepend.jar;C:\apache-ant-1.10.1\lib\ant-jmf.jar;C:\apache-ant-1.10.1\lib\ant-jsch.jar;C:\apache-ant-1.10.1\lib\ant-junit.jar;C:\apache-ant-1.10.1\lib\ant-junit4.jar;C:\apache-ant-1.10.1\lib\ant-launcher.jar;C:\apache-ant-1.10.1\lib\ant-netrexx.jar;C:\apache-ant-1.10.1\lib\ant-swing.jar;C:\apache-ant-1.10.1\lib\ant-testutil.jar;C:\apache-ant-1.10.1\lib\ant-xz.jar;C:\apache-ant-1.10.1\lib\ant.jar;C:\apache-ant-1.10.1\lib\commons-net-3.6.jar;C:\apache-ant-1.10.1\lib\javax.mail-1.4.6.jar;D:\Eclipse-Oxygen\eclipse\configuration\org.eclipse.osgi\71\0\.cp\lib\remoteAnt.jar;D:\Eclipse-Oxygen\eclipse\configuration\org.eclipse.osgi\1168\0\.cp\lib\antdebug.jar;D:\Eclipse-Oxygen\eclipse\configuration\org.eclipse.osgi\1168\0\.cp\lib\remote.jar;C:\Program Files\Java\jdk1.8.0_161\lib\tools.jar;C:\Users\aritr\.p2\pool\plugins\org.eclipse.swt.win32.win32.x86_64_3.106.2.v20171129-0543.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.1 compiled on February 2 2017" />
+    <property name="TSTAMP" value="2359" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="mail.to.address" value="aritrachatterjee2007@gmail.com" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="java.io.tmpdir" value="C:\Users\aritr\AppData\Local\Temp\" />
+    <property name="commit-message" value="My First Commit" />
+    <property name="eclipse.pdebuild.home" value="C:\Users\aritr\.p2\pool\plugins\org.eclipse.pde.build_3.9.300.v20170515-0912\." />
+    <property name="server.port" value="54218" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="os.arch" value="amd64" />
+    <property name="mail.host" value="smtp.mailtrap.io" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="etc.dir" value="etc" />
+    <property name="user.dir" value="D:\github\UsingAnt\sample" />
+    <property name="password" value="7layer" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="D:\github\UsingAnt\sample" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="C:\apache-ant-1.10.1\lib\ant.jar" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="war.name" value="sample.war" />
+    <property name="build.compiler" value="modern" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="sendmail" />
+    <property name="mail.from.address" value="build-admin@localhost.com" />
+  </properties>
+  <testcase classname="mypackage.utils.test.UtilsTest" name="testLineLength" time="0.006" />
+  <testcase classname="mypackage.utils.test.UtilsTest" name="testAdditionOfTwoIntegers" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

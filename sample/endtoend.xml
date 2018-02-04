@@ -1,40 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="End to End Build" default="prepare" basedir=".">
+<project name="End to End Build" default="sendmail" basedir=".">
 	<target name="init">
 		<tstamp />
 		<property file="build.properties" />
+		<property name="commit-message" value="My First Commit"/>
+		<property name="GIT_EXE_PATH" value="D:\Git\bin\git.exe"/>
+		<property name="server.name" value="192.168.1.3"/>
+		<property name="server.port" value="54218"/>
+		<property name="remote.dir" value="wars"/>
+		<property name="user.id" value="aritrac"/>
+		<property name="password" value="7layer"/>
+		<property name="docs.dir" value="${build.dir}"/>
+		<path id="junit.class.path">
+			<fileset dir="${lib}">
+        		<include name="junit.jar"/>
+				<include name="org.hamcrest.core_1.3.0.v201303031735.jar"/>
+				<include name="servlet-api.jar"/>
+    		</fileset>
+			<pathelement location="${build.dir}"/>
+			<pathelement location="${build.dir}/classes"/>
+		</path>
+		<path id="ju.class.path">
+			<fileset dir="${lib}">
+        		<include name="junit.jar"/>
+				<include name="org.hamcrest.core_1.3.0.v201303031735.jar"/>
+				<include name="javax.mail-1.4.6.jar"/>
+    		</fileset>
+			<pathelement location="${build.dir}"/>
+		</path>
 	</target>
 	
-	<target name="startrecorder">
+	<target name="startrecorder" depends="clean">
+		<echo>*******************************************</echo>
+		<echo>Starting build logger...</echo>
+		<echo>*******************************************</echo>
 		<record name="${name}-${DSTAMP}-log.txt"
 				action="start"
 				append="false"/>
 	</target>
+	
 	<!-- build and classes directory are already part of the project -->
 	<target name="prepare" depends="init, startrecorder">
+		<echo>*******************************************</echo>
+		<echo>Creating necessary directories...</echo>
+		<echo>*******************************************</echo>
 		<mkdir dir="${reports.dir}"/>
+		<delete dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/classes"/>
+		<echo>*******************************************</echo>
+		<echo>Directory creation completed...</echo>
+		<echo>*******************************************</echo>
 	</target>
 	
-	<target name="fetch" depends="init"></target>
+	<target name="fetch" description="Pulls all changes from git" depends="init, createfile">
+		<echo>*******************************************</echo>
+		<echo>Directory creation completed...</echo>
+		<echo>*******************************************</echo>
+		<git command="pull" />
+		<echo>*******************************************</echo>
+		<echo>Latest code pulled successfully...</echo>
+		<echo>*******************************************</echo>
+	</target>
 	
-	<target name="compile" depends="prepare, fetch"></target>
+	<target name="compile" depends="prepare, fetch">
+		<echo>*******************************************</echo>
+		<echo>Starting compilation...</echo>
+		<echo>*******************************************</echo>
+		<javac srcdir="${src.dir}"
+				destdir="${build.dir}\classes"
+				includeantruntime="false"
+				debug="on"
+				compiler="${build.compiler}">
+				<classpath refid="junit.class.path"/>
+		</javac>
+		<echo>*******************************************</echo>
+		<echo>Compilation successful...</echo>
+		<echo>*******************************************</echo>
+	</target>
 	
 	<target name="test" depends="compile">
-		<junit failureproperty="testsFailed"/>
+		<echo>*******************************************</echo>
+		<echo>Running necessary unit tests...</echo>
+		<echo>*******************************************</echo>
+		<junit printsummary="yes" haltonfailure="yes" showoutput="yes" failureproperty="testsFailed">
+			<classpath refid="junit.class.path"/>
+			<test name="mypackage.utils.test.UtilsTest" todir="${reports.dir}"/>
+			<formatter type="xml"/>
+		</junit>
+		<echo>*******************************************</echo>
+		<echo>Unit tests ran successfully...</echo>
+		<echo>*******************************************</echo>
 	</target>
 	
-	<target name="war" depends="test" unless="testsFailed"></target>
+	<target name="report" depends="test">
+		<echo>*******************************************</echo>
+		<echo>Generating test reports...</echo>
+		<echo>*******************************************</echo>
+		<junitreport todir="${reports.dir}">
+			<fileset dir="${reports.dir}" includes="TEST-*.xml"/>
+			<report format="noframes" todir="${reports.dir}"/>
+		</junitreport>
+		<echo>*******************************************</echo>
+		<echo>Test report generation complete...</echo>
+		<echo>*******************************************</echo>
+	</target>
 	
-	<target name="deploy" depends="war" unless="testsFailed"></target>
+	<target name="war" depends="report" unless="testsFailed">
+		<echo>*******************************************</echo>
+		<echo>Creating deployment war file...</echo>
+		<echo>*******************************************</echo>
+		<war destfile="${build.dir}/${war.name}" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent"/>
+			<lib dir="lib"/>
+			<classes dir="${build.dir.classes}">
+				<include name="**/*.class"/>
+				<exclude name="**/*Test*.class"/>
+			</classes>
+		</war>
+		<echo>*******************************************</echo>
+		<echo>Deployment war file creation complete...</echo>
+		<echo>*******************************************</echo>
+	</target>
 	
-	<target name="sendmail" depends="deploy, stoprecorder"></target>
+	<target name="deploy" depends="war" unless="testsFailed">
+		<echo>*******************************************</echo>
+		<echo>Remote deployment in progress...</echo>
+		<echo>*******************************************</echo>
+		<ftp server="${server.name}"
+			 port="${server.port}"
+			 remotedir="${remote.dir}"
+			 userid="${user.id}"
+			 password="${password}" action="del">
+			 <fileset>
+			 	<include name="sample*"/>
+			 </fileset>
+		</ftp>
+		<ftp server="${server.name}"
+			 port="${server.port}"
+			 remotedir="${remote.dir}"
+			 userid="${user.id}"
+			 password="${password}"
+			 passive="yes"
+			 binary="yes"
+			 verbose="yes">
+			 <fileset dir="${build.dir}">
+			 	<include name="*.war"/>
+			 </fileset>
+		</ftp>
+		<echo>*******************************************</echo>
+		<echo>Remote deployment complete...</echo>
+		<echo>*******************************************</echo>
+	</target>
+	
+	<target name="sendmail" depends="deploy, stoprecorder">
+		<echo>*******************************************</echo>
+		<echo>Sending mail to admin...</echo>
+		<echo>*******************************************</echo>
+		<zip destfile="${name}-${DSTAMP}-reports.zip"
+			 basedir="${reports.dir}"
+			 excludes="**/*.xml"/>
+			 
+	    <mail mailhost="${mail.host}"
+	    	  user="${mail.user}"
+	    	  password="${mail.pass}"
+	    	  ssl="false"
+	    	  mailport="${mail.port}"
+	    	  subject="Test build report - ${DSTAMP}">
+	    	  <from address="${mail.from.address}"/>
+	    	  <to address="${mail.to.address}"/>
+	    	  <message src="${name}-${DSTAMP}-log.txt"/>
+	    	  <attachments>
+	    	  	<fileset dir=".">
+	    	  		<include name="${name}-${DSTAMP}-reports.zip"/>
+	    	  	</fileset>
+	    	  </attachments>
+	    </mail>
+		<echo>*******************************************</echo>
+		<echo>Mail sent successfully to admin</echo>
+		<echo>*******************************************</echo>
+	</target>
 	
 	<target name="clean" depends="init">
+		<echo>*******************************************</echo>
+		<echo>Cleaning previous build artifacts...</echo>
+		<echo>*******************************************</echo>
 		<delete dir="${build.dir}" />
 		<delete dir="${reports.dir}" />
+		<delete file="my.properties" />
+		<echo>*******************************************</echo>
+		<echo>Cleaning complete. Proceeding with build...</echo>
+		<echo>*******************************************</echo>
 	</target>
 	
 	<target name="stoprecorder">
+		<echo>*******************************************</echo>
+		<echo>Stopping build logger...</echo>
+		<echo>*******************************************</echo>
 		<record name="${name}-${DSTAMP}-log.txt" action="stop"/>
 	</target>
 	
@@ -51,16 +212,6 @@
 			</exec>
 		</sequential>
 	</macrodef>
-	
-	<target name="init">
-		<property name="commit-message" value="My First Commit"/>
-		<property name="GIT_EXE_PATH" value="D:\Git\bin\git.exe"/>
-	</target>
-	
-	<target name="version" description="Pulls all changes from git" depends="createfile">
-		<echo message="Pulling latest code from UsingAnt project..." />
-		<git command="pull" />
-	</target>
 	
 	<target name="createfile" depends="init">
 		<propertyfile file="my.properties">

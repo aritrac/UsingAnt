@@ -36,7 +36,7 @@ test:
      [echo] Running necessary unit tests...
      [echo] *******************************************
     [junit] Running mypackage.utils.test.UtilsTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
      [echo] *******************************************
      [echo] Unit tests ran successfully...
      [echo] *******************************************
@@ -47,10 +47,34 @@ report:
      [echo] *******************************************
 [junitreport] Processing D:\github\UsingAnt\sample\reports\TESTS-TestSuites.xml to D:\github\UsingAnt\sample\reports\junit-noframes.html
 [junitreport] Loading stylesheet jar:file:/C:/apache-ant-1.10.1/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-noframes.xsl
-[junitreport] Transform time: 612ms
+[junitreport] Transform time: 632ms
      [echo] *******************************************
      [echo] Test report generation complete...
      [echo] *******************************************
-BUILD SUCCESSFUL
 
-BUILD SUCCESSFUL
+war:
+     [echo] *******************************************
+     [echo] Creating deployment war file...
+     [echo] *******************************************
+      [war] Building war: D:\github\UsingAnt\sample\build\sample.war
+     [echo] *******************************************
+     [echo] Deployment war file creation complete...
+     [echo] *******************************************
+
+deploy:
+     [echo] *******************************************
+     [echo] Remote deployment in progress...
+     [echo] *******************************************
+      [ftp] deleting files
+      [ftp] 1 files deleted
+      [ftp] sending files
+      [ftp] transferring D:\github\UsingAnt\sample\build\sample.war
+      [ftp] 1 files sent
+     [echo] *******************************************
+     [echo] Remote deployment complete...
+     [echo] *******************************************
+
+stoprecorder:
+     [echo] *******************************************
+     [echo] Stopping build logger...
+     [echo] *******************************************

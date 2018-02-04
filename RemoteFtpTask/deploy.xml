@@ -7,10 +7,11 @@
 	<target name="init">
 		<property name="server.name" value="192.168.1.3"/>
 		<property name="server.port" value="54218"/>
-		<property name="remote.dir" value="newShare"/>
+		<property name="remote.dir" value="wars"/> <!-- alias on FileZilla for the shared directory is /wars -->
 		<property name="user.id" value="aritrac"/>
 		<property name="password" value="7layer"/>
 		<property name="docs.dir" value="docs"/>
+		<property name="deploy.dir" value="deploy"/>
 	</target>
 	<!--This task gets all the html files from the default FTP root directory and copies them all to the docs directory -->
 	<target name="get" depends="init">
@@ -26,7 +27,7 @@
 	</target>
 	
 	<!-- This task puts the html files from the docs directory to the FTP newShare directory-->
-	<target name="ftp" depends="init">
+	<target name="ftp" depends="copy">
 		<ftp server="${server.name}"
 			 port="${server.port}"
 			 remotedir="${remote.dir}"

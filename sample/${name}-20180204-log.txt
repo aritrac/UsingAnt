@@ -1,7 +1,0 @@
-
-prepare:
-    [mkdir] Created dir: D:\github\UsingAnt\sample\${build.dir.classes}
-    [mkdir] Created dir: D:\github\UsingAnt\sample\${reports.dir}
-BUILD SUCCESSFUL
-
-BUILD SUCCESSFUL
