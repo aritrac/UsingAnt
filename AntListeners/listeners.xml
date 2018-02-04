@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+There are 7 different types of listeners in ant. They are as follows
+
+Build started
+
+Build finished
+
+Target started
+
+Target finished
+
+Task started
+
+Task finished
+
+Message logged 
+
+Listeners are primarily used by Loggers. So the listeners will not be of use if we are not writing our custom loggers. The ant loggers are provided below
+
+DefaultLogger
+
+NoBannerLogger
+
+TimestampedLogger
+
+BigProjectLogger
+
+SimpleBigProjectLogger
+
+ProfileLogger
+
+AnsiColorLogger
+
+MailLogger
+
+Log4JListener
+
+XmlLogger
+ -->
