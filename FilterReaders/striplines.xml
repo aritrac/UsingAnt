@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Strip lines example" default="strip" basedir=".">
+	<target name="strip">
+		<copy todir="build/stripjava">
+			<filterchain>
+				<striplinecomments>
+					<comment value="--"/>
+				</striplinecomments>
+			</filterchain>
+			<fileset dir="src">
+				<include name="**/*.sql" />
+			</fileset>
+		</copy>
+	</target>
+</project>

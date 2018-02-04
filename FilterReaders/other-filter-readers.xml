@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<!--
+tabstospaces - Replaces tabs with a given number of spaces
+
+headfilter - Returns only the top given number of lines
+
+tailfilter - Returns only the bottom given number of lines
+
+linecontains - Copies only lines containing a given string
+
+linecontainsregexp - Copies only lines matching a regexp 
+
+prefixlines - Adds a string to the beginning of every line
+
+expandproperties - Expands Ant properties
+ -->
+</root>
